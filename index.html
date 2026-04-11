@@ -249,114 +249,72 @@
     /* ─── ABOUT ──────────────────────────────────────── */
     .about { background: var(--bg-surface); }
 
-    .about-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-    .about-header .section-tag,
-    .about-header .section-divider,
-    .about-header .section-desc { margin-left: auto; margin-right: auto; }
-    .about-header .section-divider { margin: .9rem auto 1.6rem; }
-
-    .about-grid {
+    .about-layout {
       display: grid;
-      grid-template-columns: 1fr 260px 1fr;
-      gap: 1.5rem;
+      grid-template-columns: 270px 1fr;
+      gap: 4rem;
       align-items: start;
+      margin-top: 2.5rem;
     }
 
-    .about-col-left {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      text-align: right;
-    }
-
-    .about-col-right {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .about-center {
-      position: relative;
+    .about-photo {
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: 0 24px 64px rgba(0,0,0,.55), 0 0 0 1px var(--border);
-      align-self: stretch;
+      position: sticky;
+      top: 5.5rem;
     }
-
-    .about-center-img {
+    .about-photo img {
       width: 100%;
-      height: 100%;
-      min-height: 360px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .about-center-img img {
-      width: 100%;
-      height: 100%;
+      display: block;
       object-fit: cover;
       object-position: center top;
-      display: block;
+      min-height: 340px;
     }
 
-    .about-center-img::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,.55) 100%);
+    .about-content > p {
+      font-size: .92rem;
+      color: var(--text-muted);
+      line-height: 1.88;
+      margin-bottom: 2rem;
     }
 
-    .about-center-btn {
-      position: absolute;
-      bottom: 1.25rem;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
-      padding: .55rem 1.3rem;
-      background: rgba(255,255,255,.1);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,.18);
-      border-radius: 999px;
-      color: white;
-      font-size: .82rem;
-      font-weight: 500;
-      text-decoration: none;
-      white-space: nowrap;
-      transition: background var(--tr);
+    .about-points {
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
     }
-    .about-center-btn:hover { background: rgba(255,255,255,.2); }
 
-    .about-card {
+    .about-point {
+      display: flex;
+      gap: .85rem;
+      align-items: flex-start;
+      font-size: .875rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      padding: .85rem 1.1rem;
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.35rem 1.5rem;
-      transition: border-color var(--tr), transform var(--tr);
+      border-radius: var(--radius-sm);
+      transition: border-color var(--tr);
     }
-    .about-card:hover {
-      border-color: var(--border-accent);
-      transform: translateY(-2px);
+    .about-point:hover { border-color: var(--border-accent); }
+
+    .about-point-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: .48rem;
     }
-    .about-card-icon { font-size: 1.4rem; margin-bottom: .6rem; }
-    .about-card h3 { font-size: .95rem; font-weight: 600; color: var(--text); margin-bottom: .4rem; }
-    .about-card p { font-size: .82rem; color: var(--text-muted); line-height: 1.65; }
+
+    .about-point strong { color: var(--text); font-weight: 500; }
 
     /* ─── HOW I WORK ─────────────────────────────────── */
-    .how-i-work-intro {
-      margin-bottom: 3rem;
-    }
-    .how-i-work-intro p {
-      font-size: .9rem;
-      color: var(--text-muted);
-      line-height: 1.8;
-    }
-
     .how-i-work-grid {
       display: flex;
       flex-direction: column;
+      margin-top: 2rem;
     }
 
     .how-i-work-item {
@@ -711,10 +669,8 @@
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
 
-      .about-grid { grid-template-columns: 1fr; }
-      .about-center { max-width: 320px; margin: 0 auto; }
-      .about-center-img { min-height: 320px; }
-      .about-col-left { text-align: left; }
+      .about-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .about-photo { max-width: 280px; position: static; }
 
       .project-card-full { grid-template-columns: 1fr; }
       .project-card-icon { min-height: 100px; border-right: none; border-bottom: 1px solid var(--border); }
@@ -769,7 +725,7 @@
     <h1>Drew <span>Steinke</span></h1>
     <p class="hero-tagline">Analyst · Problem-Solver · Builder</p>
     <p class="hero-sub">
-      NC State Business grad with real experience across SaaS research, project coordination, and training analytics. I analyze data, support decisions, and build clear outputs.
+      NC State Business grad. I analyze data, support operational decisions, and build things that work — looking for an analyst or operations role where that matters.
     </p>
     <div class="hero-actions">
       <a href="#projects" class="btn-primary">View My Projects</a>
@@ -781,60 +737,34 @@
 <!-- ══ ABOUT ════════════════════════════════════════════ -->
 <section class="about" id="about">
   <div class="container">
-    <div class="about-header">
-      <div class="section-tag">Background</div>
-      <h2 class="section-title">About Me</h2>
-      <div class="section-divider"></div>
-      <p class="section-desc">
-        B.S. Business Administration, NC State — Supply Chain concentration, GPA 3.69.
-        Three roles across SaaS, construction, and training. Same approach every time: get organized, stay aligned, deliver clear work.
-      </p>
-    </div>
+    <div class="section-tag">Background</div>
+    <h2 class="section-title">About Me</h2>
+    <div class="section-divider"></div>
 
-    <div class="about-grid">
-      <!-- Left -->
-      <div class="about-col-left">
-        <div class="about-card fade-up">
-          <div class="about-card-icon">🗂️</div>
-          <h3>Organized by Default</h3>
-          <p>I think in systems. Whether tracking project costs or reviewing quiz data, I build structure so work is traceable and easy to hand off.</p>
-        </div>
-        <div class="about-card fade-up">
-          <div class="about-card-icon">🔍</div>
-          <h3>Comfortable with Ambiguity</h3>
-          <p>At Datacor, I turned unstructured customer interviews across three regions into JIRA epics — no template, no prior example. Starting from incomplete information is something I'm used to.</p>
-        </div>
-        <div class="about-card fade-up">
-          <div class="about-card-icon">🔗</div>
-          <h3>Supply Chain & Ops Foundation</h3>
-          <p>B.S. Business Administration, Supply Chain concentration. Academic grounding in sourcing, demand planning, spend analysis, and process design — a useful lens for analyst work.</p>
-        </div>
+    <div class="about-layout">
+      <div class="about-photo">
+        <img src="images/profile.png" alt="Drew Steinke">
       </div>
 
-      <!-- Center photo -->
-      <div class="about-center">
-        <div class="about-center-img">
-          <img src="images/profile.png" alt="Drew Steinke">
-        </div>
-        <a href="#experience" class="about-center-btn">View Experience →</a>
-      </div>
-
-      <!-- Right -->
-      <div class="about-col-right">
-        <div class="about-card fade-up">
-          <div class="about-card-icon">🤝</div>
-          <h3>Cross-Functional Experience</h3>
-          <p>Coordinated between customers, contractors, engineers, and leadership across construction, SaaS, and training environments. I keep groups aligned without becoming the bottleneck.</p>
-        </div>
-        <div class="about-card fade-up">
-          <div class="about-card-icon">🛠️</div>
-          <h3>Builder, Not Just Analyzer</h3>
-          <p>I build alongside analyzing — a live web app, client websites, structured event systems. I deliver working outputs, not just assessments.</p>
-        </div>
-        <div class="about-card fade-up">
-          <div class="about-card-icon">✅</div>
-          <h3>Reliable Follow-Through</h3>
-          <p>I track my own work, meet deadlines without reminders, and communicate proactively. In every role I've held, that's been expected — and I've met it.</p>
+      <div class="about-content fade-up">
+        <p>
+          Recent NC State grad — B.S. Business Administration, Supply Chain concentration, GPA 3.69.
+          I've worked across SaaS product research, residential project coordination, and training analytics.
+          I'm drawn to roles where there's a real problem to solve and data to work with.
+        </p>
+        <div class="about-points">
+          <div class="about-point">
+            <span class="about-point-dot"></span>
+            <span><strong>Three industries in three years</strong> — SaaS, construction, and training. Different tools each time, same core discipline.</span>
+          </div>
+          <div class="about-point">
+            <span class="about-point-dot"></span>
+            <span><strong>Supply chain academic foundation</strong> — sourcing, demand planning, spend analysis, and process design. A practical lens for analyst and operations roles.</span>
+          </div>
+          <div class="about-point">
+            <span class="about-point-dot"></span>
+            <span><strong>I build things alongside analyzing them</strong> — a live web app, client websites, structured event systems. I deliver outputs, not just assessments.</span>
+          </div>
         </div>
       </div>
     </div>
@@ -847,10 +777,6 @@
     <div class="section-tag">Approach</div>
     <h2 class="section-title">How I Work</h2>
     <div class="section-divider"></div>
-
-    <div class="how-i-work-intro fade-up">
-      <p>The tools I use and how I apply them.</p>
-    </div>
 
     <div class="how-i-work-grid">
       <div class="how-i-work-item fade-up">
@@ -920,12 +846,12 @@
           </div>
           <h3>Website Design &amp; Development</h3>
           <p class="project-problem">
-            Designed and built websites for a small business and a genealogy research project — each with distinct audiences, content structures, and usability requirements.
+            Built sites for a small business and a genealogy research project — two different audiences, two different content problems, both requiring decisions about how information is organized and presented.
           </p>
           <ul class="project-points">
-            <li>Gathered requirements directly from stakeholders and translated them into site structure</li>
-            <li>Made independent decisions on information architecture, layout, and readability</li>
-            <li>Delivered working, published sites — not mockups</li>
+            <li>Translated stakeholder needs into clear site structure and navigation</li>
+            <li>Made deliberate readability and layout decisions suited to each audience</li>
+            <li>Delivered working, published sites — not mockups or templates</li>
           </ul>
         </div>
       </div>
@@ -1040,15 +966,14 @@
     <h2 class="section-title">Get in Touch</h2>
     <div class="section-divider"></div>
     <p class="section-desc">
-      If you're hiring for analyst or operations roles, I'd welcome the conversation.
-      Feel free to reach out directly — I respond promptly.
+      Actively looking for analyst, operations, and supply chain roles. I respond promptly.
     </p>
 
     <div class="contact-wrapper">
       <div class="contact-info fade-up">
-        <h3>Open to New Roles</h3>
+        <h3>Reach Out</h3>
         <p>
-          I'm actively looking for entry-level analyst and operations positions. Whether you want to discuss a specific role, ask about my background, or just connect — reach out through any of the channels below.
+          Whether you want to discuss a role, ask about my background, or just connect — I'm easy to reach.
         </p>
         <div class="contact-items">
           <div class="contact-item">
