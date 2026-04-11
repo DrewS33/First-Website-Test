@@ -200,6 +200,43 @@
       transform: translateY(-2px);
     }
 
+    .btn-download {
+      padding: .75rem 2rem;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      border-radius: var(--radius-sm);
+      font-weight: 500;
+      font-size: .95rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      transition: border-color var(--tr), color var(--tr), transform var(--tr), background var(--tr);
+    }
+    .btn-download:hover {
+      border-color: var(--border-accent);
+      color: var(--text);
+      background: rgba(201,168,76,.04);
+      transform: translateY(-2px);
+    }
+
+    .resume-download-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      margin-top: 1.25rem;
+      padding: .6rem 1.1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      font-size: .84rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: border-color var(--tr), color var(--tr);
+    }
+    .resume-download-link:hover { border-color: var(--border-accent); color: var(--text); }
+
     /* ─── SECTION SHARED ─────────────────────────────── */
     section { padding: 6.5rem 2rem; }
     .container { max-width: 1100px; margin: 0 auto; }
@@ -730,6 +767,7 @@
     <div class="hero-actions">
       <a href="#projects" class="btn-primary">View My Projects</a>
       <a href="#contact" class="btn-outline">Get in Touch</a>
+      <a href="resume.pdf" download class="btn-download">↓ Download Resume</a>
     </div>
   </div>
 </section>
@@ -889,7 +927,7 @@
     <div class="looking-for-grid">
       <div class="fade-up">
         <p style="font-size:.88rem;color:var(--text-muted);line-height:1.8;margin-bottom:1.5rem;">
-          I'm looking for a role where data, process, and clear thinking are central to the work — not peripheral. Open to business analysis, operations, supply chain, and reporting-focused positions across industries.
+          I'm looking for a role where data, process, and clear thinking are central to the work. Open to business analysis, operations, supply chain, and reporting-focused positions across industries.
         </p>
         <p style="font-size:.88rem;color:var(--text-muted);line-height:1.8;">
           I'm based in Raleigh, NC and open to hybrid, remote or relocation.
@@ -993,6 +1031,7 @@
             <span>linkedin.com/in/drewsteinke</span>
           </a>
         </div>
+        <a href="resume.pdf" download class="resume-download-link">↓ Download Resume</a>
       </div>
 
       <form class="contact-form fade-up" onsubmit="handleSubmit(event)">
