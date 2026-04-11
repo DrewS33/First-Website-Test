@@ -201,7 +201,7 @@
     }
 
     /* ─── SECTION SHARED ─────────────────────────────── */
-    section { padding: 6rem 2rem; }
+    section { padding: 6.5rem 2rem; }
     .container { max-width: 1100px; margin: 0 auto; }
 
     .section-tag {
@@ -348,17 +348,10 @@
     .how-i-work-intro {
       margin-bottom: 3rem;
     }
-    .how-i-work-intro p:first-child {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: .5rem;
-    }
-    .how-i-work-intro p:last-child {
-      font-size: .92rem;
+    .how-i-work-intro p {
+      font-size: .9rem;
       color: var(--text-muted);
       line-height: 1.8;
-      max-width: 600px;
     }
 
     .how-i-work-grid {
@@ -379,10 +372,12 @@
     }
 
     .how-i-work-item h3 {
-      font-size: .95rem;
-      font-weight: 600;
-      color: var(--text);
-      padding-top: .1rem;
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--accent);
+      padding-top: .15rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
     }
 
     .how-i-work-bullets {
@@ -429,7 +424,7 @@
       display: grid;
       grid-template-columns: 200px 1fr;
     }
-    .project-card-full:hover { border-color: var(--border-accent); }
+    .project-card-full:hover { border-color: var(--border-accent); box-shadow: 0 8px 32px rgba(0,0,0,.35); }
 
     .project-card-icon {
       background: linear-gradient(135deg, #12121e 0%, #1e1e32 100%);
@@ -545,9 +540,9 @@
       font-size: .9rem;
       color: var(--text);
       font-weight: 500;
-      transition: border-color var(--tr);
+      transition: border-color var(--tr), border-left-color var(--tr), transform var(--tr);
     }
-    .role-pill:hover { border-color: var(--border-accent); }
+    .role-pill:hover { border-color: var(--border-accent); border-left-color: var(--accent); transform: translateX(3px); }
     .role-pill-dot {
       width: 7px;
       height: 7px;
@@ -584,11 +579,11 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       overflow: hidden;
-      transition: border-color var(--tr);
+      transition: border-color var(--tr), transform var(--tr);
       display: grid;
       grid-template-columns: 130px 1fr;
     }
-    .exp-card:hover { border-color: var(--border-accent); }
+    .exp-card:hover { border-color: var(--border-accent); transform: translateY(-2px); }
 
     .exp-icon {
       background: linear-gradient(135deg, #12121e 0%, #1e1e32 100%);
@@ -774,9 +769,7 @@
     <h1>Drew <span>Steinke</span></h1>
     <p class="hero-tagline">Analyst · Problem-Solver · Builder</p>
     <p class="hero-sub">
-      NC State Business graduate with hands-on experience in data analysis, reporting,
-      and process improvement. I work across teams, use modern tools well, and focus on
-      turning information into decisions that actually matter.
+      NC State Business grad with real experience across SaaS research, project coordination, and training analytics. I analyze data, support decisions, and build clear outputs.
     </p>
     <div class="hero-actions">
       <a href="#projects" class="btn-primary">View My Projects</a>
@@ -793,9 +786,8 @@
       <h2 class="section-title">About Me</h2>
       <div class="section-divider"></div>
       <p class="section-desc">
-        NC State graduate, B.S. Business Administration — Supply Chain Management concentration, GPA 3.69.
-        I've worked across SaaS product research, residential project coordination, and training content development.
-        The through-line in all of it: keeping things organized, communicating clearly, and using data to make better decisions.
+        B.S. Business Administration, NC State — Supply Chain concentration, GPA 3.69.
+        Three roles across SaaS, construction, and training. Same approach every time: get organized, stay aligned, deliver clear work.
       </p>
     </div>
 
@@ -803,19 +795,19 @@
       <!-- Left -->
       <div class="about-col-left">
         <div class="about-card fade-up">
-          <div class="about-card-icon">📊</div>
-          <h3>Data Analysis</h3>
-          <p>Experienced using Excel, Power BI, and Tableau to track performance, identify trends, and summarize findings for decision-makers.</p>
+          <div class="about-card-icon">🗂️</div>
+          <h3>Organized by Default</h3>
+          <p>I think in systems. Whether tracking project costs or reviewing quiz data, I build structure so work is traceable and easy to hand off.</p>
         </div>
         <div class="about-card fade-up">
-          <div class="about-card-icon">📋</div>
-          <h3>Project Coordination</h3>
-          <p>Managed budgets, timelines, and stakeholder communication across construction, SaaS, and training environments.</p>
+          <div class="about-card-icon">🔍</div>
+          <h3>Comfortable with Ambiguity</h3>
+          <p>At Datacor, I turned unstructured customer interviews across three regions into JIRA epics — no template, no prior example. Starting from incomplete information is something I'm used to.</p>
         </div>
         <div class="about-card fade-up">
           <div class="about-card-icon">🔗</div>
-          <h3>Supply Chain Foundation</h3>
-          <p>Academic grounding in sourcing, demand forecasting, spend analysis, and optimization — applicable across operations and analyst roles.</p>
+          <h3>Supply Chain & Ops Foundation</h3>
+          <p>B.S. Business Administration, Supply Chain concentration. Academic grounding in sourcing, demand planning, spend analysis, and process design — a useful lens for analyst work.</p>
         </div>
       </div>
 
@@ -831,18 +823,18 @@
       <div class="about-col-right">
         <div class="about-card fade-up">
           <div class="about-card-icon">🤝</div>
-          <h3>Cross-Functional Communication</h3>
-          <p>Comfortable working between customers, contractors, engineers, and leadership — translating needs and keeping everyone aligned.</p>
+          <h3>Cross-Functional Experience</h3>
+          <p>Coordinated between customers, contractors, engineers, and leadership across construction, SaaS, and training environments. I keep groups aligned without becoming the bottleneck.</p>
         </div>
         <div class="about-card fade-up">
-          <div class="about-card-icon">🤖</div>
-          <h3>AI & Modern Tools</h3>
-          <p>Use ChatGPT and Claude practically — for analysis support, content clarity, and workflow efficiency. Not as a shortcut, but as a multiplier.</p>
+          <div class="about-card-icon">🛠️</div>
+          <h3>Builder, Not Just Analyzer</h3>
+          <p>I build alongside analyzing — a live web app, client websites, structured event systems. I deliver working outputs, not just assessments.</p>
         </div>
         <div class="about-card fade-up">
-          <div class="about-card-icon">📝</div>
-          <h3>Reporting & Clarity</h3>
-          <p>Build reports that are easy to act on. At Lancaster Safety, I analyze learner data to surface gaps and improve training materials.</p>
+          <div class="about-card-icon">✅</div>
+          <h3>Reliable Follow-Through</h3>
+          <p>I track my own work, meet deadlines without reminders, and communicate proactively. In every role I've held, that's been expected — and I've met it.</p>
         </div>
       </div>
     </div>
@@ -857,8 +849,7 @@
     <div class="section-divider"></div>
 
     <div class="how-i-work-intro fade-up">
-      <p>I focus on turning messy information into clear, usable outputs.</p>
-      <p>I combine data tools, structured thinking, and AI assistance to analyze problems, improve processes, and deliver work that's organized and easy to act on.</p>
+      <p>The tools I use and how I apply them.</p>
     </div>
 
     <div class="how-i-work-grid">
@@ -897,9 +888,6 @@
     <div class="section-tag">Work Samples</div>
     <h2 class="section-title">Projects</h2>
     <div class="section-divider"></div>
-    <p class="section-desc">
-      Personal and applied projects that show how I think about problems, organize solutions, and build things that work.
-    </p>
 
     <div class="project-cards-list">
 
@@ -912,12 +900,12 @@
           </div>
           <h3>Recipe &amp; Grocery Planning App</h3>
           <p class="project-problem">
-            Meal planning is time-consuming when you have to manually track ingredients across multiple recipes. I built a web app to consolidate that process — select recipes, get a clean organized grocery list.
+            Built a web app that lets users select recipes and automatically generate a consolidated grocery list — reducing the friction of manual meal planning.
           </p>
           <ul class="project-points">
-            <li>Designed the full user flow from recipe browsing to list generation</li>
-            <li>Focused on practical daily use — simple interface, minimal friction</li>
-            <li>Built and deployed as a live, functional web application</li>
+            <li>Designed the end-to-end user workflow: browse, select, generate list</li>
+            <li>Structured ingredient data to avoid duplicates and group by category</li>
+            <li>Deployed as a live, functioning application — not a prototype</li>
           </ul>
           <a href="https://drews33.github.io/pattys-recipes/" target="_blank" rel="noopener" class="project-link">View Live Site →</a>
         </div>
@@ -930,14 +918,14 @@
           <div class="project-card-meta">
             <span class="project-type-tag">Web Design · Client &amp; Personal</span>
           </div>
-          <h3>Business &amp; Personal Websites</h3>
+          <h3>Website Design &amp; Development</h3>
           <p class="project-problem">
-            Clients and individuals needed professional web presences built from scratch — with clear requirements, tight timelines, and no existing templates to work from.
+            Designed and built websites for a small business and a genealogy research project — each with distinct audiences, content structures, and usability requirements.
           </p>
           <ul class="project-points">
-            <li>Gathered requirements directly from stakeholders and translated them into working sites</li>
-            <li>Made independent design and structure decisions to meet each client's goals</li>
-            <li>Projects include a small business site and a genealogy research platform</li>
+            <li>Gathered requirements directly from stakeholders and translated them into site structure</li>
+            <li>Made independent decisions on information architecture, layout, and readability</li>
+            <li>Delivered working, published sites — not mockups</li>
           </ul>
         </div>
       </div>
@@ -949,14 +937,14 @@
           <div class="project-card-meta">
             <span class="project-type-tag">Operations · Online Events</span>
           </div>
-          <h3>Community Event Operations</h3>
+          <h3>Online Event Operations</h3>
           <p class="project-problem">
-            Running recurring online events for 80+ participants requires real operational thinking — scheduling, asset management, participant coordination, and real-time problem-solving.
+            Planned and ran recurring structured events for 80+ participants — requiring scheduling, logistics coordination, asset management, and real-time problem-solving each cycle.
           </p>
           <ul class="project-points">
-            <li>Planned and executed recurring events with consistent structure and reliable logistics</li>
-            <li>Built and maintained custom assets used across each event cycle</li>
-            <li>Managed live coordination and troubleshooting across a large participant group</li>
+            <li>Built reusable systems and assets to maintain consistency across events</li>
+            <li>Coordinated participant logistics and troubleshot issues live, without disruption</li>
+            <li>Operated as a one-person ops function: planning, execution, and follow-up</li>
           </ul>
         </div>
       </div>
@@ -975,10 +963,10 @@
     <div class="looking-for-grid">
       <div class="fade-up">
         <p style="font-size:.88rem;color:var(--text-muted);line-height:1.8;margin-bottom:1.5rem;">
-          I'm actively pursuing entry-level roles where I can work with data, support operations, and contribute to improving how teams make decisions. I work best in structured environments where clear thinking and reliable follow-through are valued.
+          I'm looking for a role where data, process, and clear thinking are central to the work — not peripheral. Open to business analysis, operations, supply chain, and reporting-focused positions across industries.
         </p>
         <p style="font-size:.88rem;color:var(--text-muted);line-height:1.8;">
-          I'm not looking for a role to coast in. I want to learn the systems, understand the data, and be useful from day one.
+          I'm based in Raleigh, NC and open to hybrid or remote arrangements.
         </p>
       </div>
 
@@ -999,10 +987,6 @@
     <div class="section-tag">Work History</div>
     <h2 class="section-title">Experience</h2>
     <div class="section-divider"></div>
-    <p class="section-desc">
-      Roles in training content development, residential project coordination, and SaaS product research —
-      each building a stronger foundation in analysis, operations, and stakeholder communication.
-    </p>
 
     <div class="exp-list">
 
@@ -1011,7 +995,7 @@
         <div class="exp-body">
           <div class="exp-meta">Media Development Analyst · Mar 2026 – Present</div>
           <h3>Lancaster Safety — Pittsburgh, PA</h3>
-          <p>Reviewed training quiz results to identify commonly missed questions and improve content clarity. Created reports summarizing learner trends and areas for improvement. Used AI tools (ChatGPT, Claude) to support content creation and improve clarity of training materials.</p>
+          <p>Analyze learner quiz data to identify gaps and improve training content. Build reports on learner trends for internal decision-making. Use AI tools (ChatGPT, Claude) to accelerate content drafting and improve clarity — without replacing editorial judgment.</p>
         </div>
       </div>
 
@@ -1020,7 +1004,7 @@
         <div class="exp-body">
           <div class="exp-meta">Logistics &amp; Junior Project Management · Feb 2025 – Oct 2025</div>
           <h3>Reynolds Renovations — Raleigh, NC</h3>
-          <p>Maintained budget and expense tracking to ensure project profitability. Communicated expectations, timelines, and issue resolutions between customers, contractors, and suppliers. Managed schedules, materials, and deadlines while coordinating multiple stakeholders.</p>
+          <p>Tracked budgets and expenses across active projects to protect margins. Managed schedules, materials, and deadlines across multiple concurrent jobs. Served as the primary communication link between customers, contractors, and suppliers.</p>
         </div>
       </div>
 
@@ -1029,7 +1013,7 @@
         <div class="exp-body">
           <div class="exp-meta">Intern · Jun 2024 – Aug 2024</div>
           <h3>Datacor — Florham Park, NJ</h3>
-          <p>Conducted customer interviews across North America, Europe, and Asia to identify gaps in sustainability tracking. Created JIRA epics and user stories to align engineering with business requirements. Produced industry analysis on global animal feed regulations, collaborating cross-functionally with engineering, pricing, and sales.</p>
+          <p>Interviewed customers across North America, Europe, and Asia to identify sustainability tracking gaps — then translated findings into JIRA epics and user stories for the engineering team. Produced regulatory analysis on global animal feed markets in collaboration with engineering, pricing, and sales.</p>
         </div>
       </div>
 
