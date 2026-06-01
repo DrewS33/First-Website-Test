@@ -734,25 +734,24 @@
     /* ─── RESPONSIVE ─────────────────────────────────── */
     @media (max-width: 960px) {
       nav { padding: 1rem 1.5rem; }
-      .nav-hamburger { display: flex; }
+      .nav-hamburger { display: flex !important; }
       .nav-cta { display: none; }
 
       .nav-links {
-        display: flex !important;
-        position: fixed;
-        inset: 0;
-        background: rgba(15,15,20,.97);
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        gap: 2.5rem;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity .25s;
-        z-index: 100;
+        gap: 1.5rem;
+        padding: 2rem 1.5rem;
+        background: rgba(15,15,20,.97);
+        border-bottom: 1px solid var(--border);
       }
-      .nav-links.open { opacity: 1; pointer-events: auto; }
-      .nav-links a { font-size: 1.15rem; }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 1.1rem; }
 
       .about-layout { grid-template-columns: 1fr; gap: 2rem; }
       .about-photo { max-width: 280px; position: static; margin: 0 auto; }
@@ -768,10 +767,11 @@
     }
 
     @media (max-width: 680px) {
-      section { padding: 4.5rem 1.25rem; }
+      section { padding: 3.5rem 1.25rem; }
       .hero {
         padding: 5.5rem 1.25rem 3.5rem;
         min-height: auto;
+        align-items: flex-start;
       }
       .hero-badge {
         font-size: .68rem;
@@ -784,9 +784,12 @@
       .exp-body { padding: 1.1rem 1.25rem; }
       .how-i-work-item { grid-template-columns: 1fr; gap: .75rem; }
       .how-i-work-item h3 { margin-bottom: .55rem; }
+      .project-type-tag { font-size: .75rem; }
+      .exp-meta { font-size: .75rem; }
       .role-pill { padding: .65rem 1rem; font-size: .84rem; }
       .contact-wrapper { grid-template-columns: 1fr; gap: 2.5rem; }
       .form-row { grid-template-columns: 1fr; }
+      .form-submit { width: 100%; }
       footer { flex-direction: column; gap: .75rem; text-align: center; padding: 1.5rem; }
       .footer-links { gap: .75rem; flex-wrap: wrap; justify-content: center; }
     }
@@ -797,17 +800,20 @@
       flex-direction: column;
       justify-content: center;
       gap: 5px;
-      background: none;
-      border: none;
+      background: var(--bg-card);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-sm);
       cursor: pointer;
-      padding: .4rem;
+      padding: .55rem .65rem;
       z-index: 101;
+      transition: border-color var(--tr), background var(--tr);
     }
+    .nav-hamburger:hover { background: var(--bg-card-hover); }
     .nav-hamburger span {
       display: block;
       width: 22px;
       height: 2px;
-      background: var(--text);
+      background: var(--accent);
       border-radius: 2px;
       transition: transform var(--tr), opacity var(--tr);
     }
@@ -1020,7 +1026,27 @@
 
       <!-- Project 4: Community Event Operations -->
       <div class="project-card-full fade-up">
-        <div class="project-card-icon">📡</div>
+        <div class="project-card-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="72" height="72" fill="none" stroke="#c9a84c">
+          <circle cx="50" cy="50" r="10" fill="#c9a84c" fill-opacity=".15" stroke-width="2"/>
+          <line x1="50" y1="50" x2="22" y2="22" stroke-width="1" stroke-opacity=".45"/>
+          <line x1="50" y1="50" x2="50" y2="14" stroke-width="1" stroke-opacity=".45"/>
+          <line x1="50" y1="50" x2="78" y2="22" stroke-width="1" stroke-opacity=".45"/>
+          <line x1="50" y1="50" x2="86" y2="50" stroke-width="1" stroke-opacity=".45"/>
+          <line x1="50" y1="50" x2="78" y2="78" stroke-width="1" stroke-opacity=".45"/>
+          <line x1="50" y1="50" x2="50" y2="86" stroke-width="1" stroke-opacity=".45"/>
+          <line x1="50" y1="50" x2="22" y2="78" stroke-width="1" stroke-opacity=".45"/>
+          <line x1="50" y1="50" x2="14" y2="50" stroke-width="1" stroke-opacity=".45"/>
+          <circle cx="22" cy="22" r="6" fill="#c9a84c" fill-opacity=".18" stroke-width="1.5"/>
+          <circle cx="50" cy="14" r="6" fill="#c9a84c" fill-opacity=".18" stroke-width="1.5"/>
+          <circle cx="78" cy="22" r="6" fill="#c9a84c" fill-opacity=".18" stroke-width="1.5"/>
+          <circle cx="86" cy="50" r="6" fill="#c9a84c" fill-opacity=".18" stroke-width="1.5"/>
+          <circle cx="78" cy="78" r="6" fill="#c9a84c" fill-opacity=".18" stroke-width="1.5"/>
+          <circle cx="50" cy="86" r="6" fill="#c9a84c" fill-opacity=".18" stroke-width="1.5"/>
+          <circle cx="22" cy="78" r="6" fill="#c9a84c" fill-opacity=".18" stroke-width="1.5"/>
+          <circle cx="14" cy="50" r="6" fill="#c9a84c" fill-opacity=".18" stroke-width="1.5"/>
+        </svg>
+      </div>
         <div class="project-card-body">
           <div class="project-card-meta">
             <span class="project-type-tag">Operations · Online Events</span>
