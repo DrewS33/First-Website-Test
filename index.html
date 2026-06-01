@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Drew Steinke</title>
 
+  <meta name="description" content="Drew Steinke — Analyst, Builder, and Operations Manager based in Raleigh, NC. NC State grad open to business analyst, supply chain, and operations roles.">
+
   <!-- Open Graph -->
   <meta property="og:title" content="Drew Steinke – Portfolio" />
   <meta property="og:description" content="Data, Operations, and Process Improvement Projects" />
@@ -282,12 +284,7 @@
       letter-spacing: -.01em;
     }
 
-    .section-divider {
-      width: 44px;
-      height: 2px;
-      background: var(--accent);
-      margin: .9rem 0 1.6rem;
-    }
+    .section-divider { display: none; }
 
     .section-desc {
       font-size: .95rem;
@@ -737,28 +734,86 @@
     /* ─── RESPONSIVE ─────────────────────────────────── */
     @media (max-width: 960px) {
       nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-cta { display: none; }
+
+      .nav-links {
+        display: flex !important;
+        position: fixed;
+        inset: 0;
+        background: rgba(15,15,20,.97);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .25s;
+        z-index: 100;
+      }
+      .nav-links.open { opacity: 1; pointer-events: auto; }
+      .nav-links a { font-size: 1.15rem; }
 
       .about-layout { grid-template-columns: 1fr; gap: 2rem; }
-      .about-photo { max-width: 280px; position: static; }
+      .about-photo { max-width: 280px; position: static; margin: 0 auto; }
 
       .project-card-full { grid-template-columns: 1fr; }
-      .project-card-icon { min-height: 100px; border-right: none; border-bottom: 1px solid var(--border); }
+      .project-card-icon { min-height: 140px; border-right: none; border-bottom: 1px solid var(--border); }
+      .project-card-screenshot-icon { height: 190px; }
 
       .exp-card { grid-template-columns: 1fr; }
-      .exp-icon { min-height: 80px; border-right: none; border-bottom: 1px solid var(--border); }
+      .exp-icon { min-height: 110px; border-right: none; border-bottom: 1px solid var(--border); }
 
       .looking-for-grid { grid-template-columns: 1fr; gap: 2rem; }
     }
 
     @media (max-width: 680px) {
       section { padding: 4.5rem 1.25rem; }
-      .hero { padding: 7rem 1.25rem 4rem; }
+      .hero {
+        padding: 5.5rem 1.25rem 3.5rem;
+        min-height: auto;
+      }
+      .hero-badge {
+        font-size: .68rem;
+        letter-spacing: .05em;
+        padding: .3rem .8rem;
+        text-align: center;
+      }
+      .section-tag { margin-bottom: .4rem; }
+      .project-card-body { padding: 1.25rem; }
+      .exp-body { padding: 1.1rem 1.25rem; }
+      .how-i-work-item { grid-template-columns: 1fr; gap: .75rem; }
+      .how-i-work-item h3 { margin-bottom: .55rem; }
+      .role-pill { padding: .65rem 1rem; font-size: .84rem; }
       .contact-wrapper { grid-template-columns: 1fr; gap: 2.5rem; }
       .form-row { grid-template-columns: 1fr; }
-      .how-i-work-item { grid-template-columns: 1fr; gap: .75rem; }
       footer { flex-direction: column; gap: .75rem; text-align: center; padding: 1.5rem; }
+      .footer-links { gap: .75rem; flex-wrap: wrap; justify-content: center; }
     }
+
+    /* ─── HAMBURGER ─────────────────────────────────── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: .4rem;
+      z-index: 101;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: transform var(--tr), opacity var(--tr);
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
     /* ─── ENTRANCE ANIMATIONS ────────────────────────── */
     .fade-up {
@@ -781,10 +836,14 @@
     <li><a href="#about">About</a></li>
     <li><a href="#skills">How I Work</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#looking-for">Looking For</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Get in Touch</a>
+  <button class="nav-hamburger" aria-label="Toggle navigation">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- ══ HERO ════════════════════════════════════════════ -->
@@ -814,7 +873,7 @@
 
     <div class="about-layout">
       <div class="about-photo">
-        <img src="images/profile.png" alt="Drew Steinke">
+        <img src="images/profile.png" alt="Drew Steinke" loading="lazy">
       </div>
 
       <div class="about-content fade-up">
@@ -862,7 +921,7 @@
       <div class="how-i-work-item fade-up">
         <h3>Tools &amp; Systems</h3>
         <ul class="how-i-work-bullets">
-          <li><strong>JIRA, Smartsheet, VS Code</strong></li>
+          <li><strong>JIRA, Smartsheet</strong></li>
           <li>Organize workflows so nothing falls through the cracks</li>
           <li>Coordinate across teams with clear task tracking and timelines</li>
         </ul>
@@ -878,7 +937,7 @@
       <div class="how-i-work-item fade-up">
         <h3>App Development</h3>
         <ul class="how-i-work-bullets">
-          <li><strong>React, TypeScript, Supabase, Tailwind CSS</strong></li>
+          <li><strong>React, TypeScript, Supabase, Tailwind CSS, VS Code</strong></li>
           <li>Designed and built a full production web app from scratch — currently used by a live client business</li>
           <li>Handle everything from database schema and auth to UI and deployment</li>
           <li>Understanding how systems are built makes me a sharper analyst and a stronger collaborator with technical teams</li>
@@ -899,7 +958,7 @@
 
       <!-- Project 1: Malouf Personal Chef Web App -->
       <div class="project-card-full fade-up">
-        <div class="project-card-icon"><img src="images/malouf-logo.png" alt="Malouf Personal Chef"></div>
+        <div class="project-card-icon"><img src="images/malouf-logo.png" alt="Malouf Personal Chef" loading="lazy"></div>
         <div class="project-card-body">
           <div class="project-card-meta">
             <span class="project-type-tag">Web App · Client Project · Operations</span>
@@ -920,7 +979,7 @@
 
       <!-- Project 2: Patty's Recipes -->
       <div class="project-card-full fade-up">
-        <div class="project-card-icon"><img src="images/pattys-logo.png" alt="Patty's Recipe Box"></div>
+        <div class="project-card-icon"><img src="images/pattys-logo.png" alt="Patty's Recipe Box" loading="lazy"></div>
         <div class="project-card-body">
           <div class="project-card-meta">
             <span class="project-type-tag">Web App · Personal Project</span>
@@ -940,7 +999,7 @@
 
       <!-- Project 3: Website Development -->
       <div class="project-card-full fade-up">
-        <div class="project-card-icon" style="padding:0;overflow:hidden;"><img src="images/malouf_site.png" alt="Malouf Personal Chef website" style="max-height:none;width:100%;height:100%;object-fit:cover;object-position:center top;"></div>
+        <div class="project-card-icon project-card-screenshot-icon" style="padding:0;overflow:hidden;"><img src="images/malouf_site.png" alt="Malouf Personal Chef website" loading="lazy" style="max-height:none;width:100%;height:100%;object-fit:cover;object-position:center top;"></div>
         <div class="project-card-body">
           <div class="project-card-meta">
             <span class="project-type-tag">Web Design · Client &amp; Personal</span>
@@ -955,6 +1014,7 @@
             <li>Delivered published, live sites — no templates, no hand-offs, fully owner-built</li>
             <li>Also built the public-facing Malouf Personal Chef marketing site alongside the web app</li>
           </ul>
+          <a href="https://maloufpersonalchef.food" target="_blank" rel="noopener" class="project-link">View Live Site →</a>
         </div>
       </div>
 
@@ -1018,7 +1078,7 @@
     <div class="exp-list">
 
       <div class="exp-card fade-up">
-        <div class="exp-icon"><img src="images/malouf-logo.png" alt="Malouf Personal Chef"></div>
+        <div class="exp-icon"><img src="images/malouf-logo.png" alt="Malouf Personal Chef" loading="lazy"></div>
         <div class="exp-body">
           <div class="exp-meta">Operations Manager · May 2026 – Present</div>
           <h3>Malouf Personal Chef — Raleigh, NC</h3>
@@ -1027,7 +1087,7 @@
       </div>
 
       <div class="exp-card fade-up">
-        <div class="exp-icon"><img src="images/LSCI_logo.png" alt="Lancaster Safety"></div>
+        <div class="exp-icon"><img src="images/LSCI_logo.png" alt="Lancaster Safety" loading="lazy"></div>
         <div class="exp-body">
           <div class="exp-meta">Media Development Analyst · Mar 2026 – Present</div>
           <h3>Lancaster Safety — Pittsburgh, PA</h3>
@@ -1036,7 +1096,7 @@
       </div>
 
       <div class="exp-card fade-up">
-        <div class="exp-icon"><img src="images/RR_logo.png" alt="Reynolds Renovations"></div>
+        <div class="exp-icon"><img src="images/RR_logo.png" alt="Reynolds Renovations" loading="lazy"></div>
         <div class="exp-body">
           <div class="exp-meta">Logistics &amp; Junior Project Management · Feb 2025 – Oct 2025</div>
           <h3>Reynolds Renovations — Raleigh, NC</h3>
@@ -1045,7 +1105,7 @@
       </div>
 
       <div class="exp-card fade-up">
-        <div class="exp-icon"><img src="images/datacor_logo.png" alt="Datacor"></div>
+        <div class="exp-icon"><img src="images/datacor_logo.png" alt="Datacor" loading="lazy"></div>
         <div class="exp-body">
           <div class="exp-meta">Intern · Jun 2024 – Aug 2024</div>
           <h3>Datacor — Florham Park, NJ</h3>
@@ -1054,7 +1114,7 @@
       </div>
 
       <div class="exp-card exp-card-edu fade-up">
-        <div class="exp-icon"><img src="images/NCSU_logo.png" alt="NC State University"></div>
+        <div class="exp-icon"><img src="images/NCSU_logo.png" alt="NC State University" loading="lazy"></div>
         <div class="exp-body">
           <div class="exp-meta">Education · Graduated May 2025</div>
           <h3>North Carolina State University — Raleigh, NC</h3>
@@ -1115,27 +1175,27 @@
         <form id="contact-form" class="contact-form">
           <div class="form-row">
             <div class="form-group">
-              <label>First Name</label>
-              <input type="text" name="first_name" placeholder="John" required data-fs-field>
+              <label for="first_name">First Name</label>
+              <input id="first_name" type="text" name="first_name" placeholder="John" required data-fs-field>
               <span data-fs-error="first_name" class="field-error"></span>
             </div>
             <div class="form-group">
-              <label>Last Name</label>
-              <input type="text" name="last_name" placeholder="Doe" required>
+              <label for="last_name">Last Name</label>
+              <input id="last_name" type="text" name="last_name" placeholder="Doe" required>
             </div>
           </div>
           <div class="form-group">
-            <label>Email</label>
-            <input type="email" name="email" placeholder="john@example.com" required data-fs-field>
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" placeholder="john@example.com" required data-fs-field>
             <span data-fs-error="email" class="field-error"></span>
           </div>
           <div class="form-group">
-            <label>Subject</label>
-            <input type="text" name="subject" placeholder="Analyst role opportunity…">
+            <label for="subject">Subject</label>
+            <input id="subject" type="text" name="subject" placeholder="Analyst role opportunity…">
           </div>
           <div class="form-group">
-            <label>Message</label>
-            <textarea name="message" placeholder="Tell me about the role or what you'd like to discuss…" required data-fs-field></textarea>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell me about the role or what you'd like to discuss…" required data-fs-field></textarea>
             <span data-fs-error="message" class="field-error"></span>
           </div>
           <button type="submit" class="form-submit" data-fs-submit-btn>Send Message →</button>
@@ -1159,6 +1219,20 @@
 </footer>
 
 <script>
+  /* ── Hamburger menu ── */
+  const hamburger = document.querySelector('.nav-hamburger');
+  const mobileNav = document.querySelector('.nav-links');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+  });
+  mobileNav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileNav.classList.remove('open');
+    });
+  });
+
   /* ── Scroll-spy nav highlight ── */
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
